@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": [
+        "src",
+        "TUAN3"
+    ],
+    "java.project.outputPath": "bin"
+}
