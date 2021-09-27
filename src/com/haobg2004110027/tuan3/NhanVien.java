@@ -1,3 +1,4 @@
+package com.haobg2004110027.tuan3;
 public class NhanVien {        
     String name, address, wpart, dateOB;
     int salary;

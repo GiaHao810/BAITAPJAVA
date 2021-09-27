@@ -1,3 +1,5 @@
+package com.haobg2004110027.tuan3;
+
 public class ComputerTestDrive {
     public static void main(String[] args) {
         /*

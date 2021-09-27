@@ -1,3 +1,4 @@
+package com.haobg2004110027.tuan3;
 public class Computer {
     String nhaSX, namSX, hdh, ram, cpu, namBH;
     int price;
