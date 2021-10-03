@@ -1,6 +1,5 @@
-import NhanVien;
-
 package com.haobg2004110027.tuan3;
+
 public class NhanVienTestDrive {
     public static void main(String[] args) {
         /*
