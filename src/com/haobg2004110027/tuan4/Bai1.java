@@ -1,4 +1,4 @@
-package com.haobg2004110027.Lab5.tuan4;
+package com.haobg2004110027.tuan4;
 
 import java.util.ArrayList;
 import java.util.Scanner;

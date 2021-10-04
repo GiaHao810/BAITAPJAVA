@@ -1,4 +1,4 @@
-package com.haobg2004110027.Lab1.tuan1;
+package com.haobg2004110027.tuan1;
 
 import java.util.Scanner;
 
