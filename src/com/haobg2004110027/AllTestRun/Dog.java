@@ -1,4 +1,4 @@
-package com.haobg2004110027.TestRun;
+package com.haobg2004110027.AllTestRun;
 
 public class Dog {
         

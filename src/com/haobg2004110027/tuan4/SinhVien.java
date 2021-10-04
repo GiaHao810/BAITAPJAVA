@@ -1,4 +1,4 @@
-package com.haobg2004110027.testtuan4;
+package com.haobg2004110027.tuan4;
 
 public class SinhVien {
     int mssv,age;

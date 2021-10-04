@@ -1,4 +1,4 @@
-package com.haobg2004110027.tuan4.Bai1;
+package com.haobg2004110027.Lab5.tuan4;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -24,6 +24,7 @@ public class Bai1 {
         }
         System.out.println("Danh sách các số thực vừa nhập: " + doubles);
         System.out.println("Tổng của các số thực vừa nhập: " + sum);
+        
         scanner.close();
     }
 }
