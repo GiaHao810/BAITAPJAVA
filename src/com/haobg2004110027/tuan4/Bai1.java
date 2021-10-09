@@ -19,9 +19,11 @@ public class Bai1 {
             number = scanner.nextDouble();
             doubles.add(number);
         }
+
         for(double element  : doubles){
             sum += element;
         }
+
         System.out.println("===============================");
         System.out.println("Danh sách các số thực vừa nhập: " + doubles);
         System.out.println("===============================");

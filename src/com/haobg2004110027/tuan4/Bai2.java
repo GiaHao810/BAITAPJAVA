@@ -6,30 +6,52 @@ import java.util.Scanner;
 public class Bai2 {
         public static void main(String[] args) {
             Scanner input = new Scanner(System.in);
+            ArrayList<String> studenList = new ArrayList<>();
+
+            String name = "", age = "", id = "";
             
+            boolean flag = true;
             int soLuong;
             int key;
             
             do {
-                System.out.println("Nhập số lượng sinh viên: ");
+                System.out.print("Nhập số lượng sinh viên: ");
                 soLuong = input.nextInt();
             } while (soLuong <= 0);
-            
-            showMenu();
-            
-            while(true){
+
+            while(flag){
+                showMenu();
+                System.out.print("Mời nhập lựa chọn: ");
                 key = input.nextInt();
                 switch (key) {
                     case 0:
-                        System.out.println("Bạn đã chọn [0]");
+                        System.out.println("Bạn đã chọn [0] - Chương trình đang đóng.");
                         input.close();
+                        flag = false;
                         break;
                     case 1:
                         System.out.println("Bạn đã chọn [1]");
                         
+                        cls();
+
+                        for(int i = 1; i < soLuong; i++){
+                            System.out.println("\nNhập thông tin sinh viên thứ " + i + ": ");
+                            System.out.print("Tên: ");
+                            name = input.next();
+                            studenList.add(name);
+                            System.out.print("ID: ");
+                            id = input.next();
+                            studenList.add(id);
+                            System.out.print("Tuổi: ");
+                            age = input.next();
+                            studenList.add(age);
+                        }
+
+                        cls();
                         break;
                     case 2:
                         System.out.println("Bạn đã chọn [2]");
+                        System.out.println(studenList);
                         break;
                     case 3:
                         System.out.println("Bạn đã chọn [3]");
@@ -46,6 +68,7 @@ public class Bai2 {
                 }
             }
         }
+
         public static void showMenu() {
             System.out.println("=====================================");
             System.out.println("1. Nhập danh sách họ và tên");
@@ -56,20 +79,13 @@ public class Bai2 {
             System.out.println("0. Thoát chương trình");
             System.out.println("=====================================");
         }
-        public void cls() {
+        public static void cls() {
             System.out.print("\033[H\033[2J");
             System.out.flush(); 
         }
-        public void nhap(int ID, String N, int T) {
+        public static void nhap(String id, String name, String age) {
             Scanner input = new Scanner(System.in);
-            ArrayList<> studenList = new ArrayList<>();
-            cls();
-            System.out.println("Nhập ID: ");
-            studenList.add(ID);
-            System.out.println("Nhập Tên: ");
-            N = input.next();
-            System.out.println("Nhập Tuổi: ");
-            T = input.nextInt();
+            
 
             input.close();
         }
