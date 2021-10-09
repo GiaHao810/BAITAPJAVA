@@ -2,8 +2,6 @@ package com.haobg2004110027.Baihoc.tuan5;
 
 import java.util.ArrayList;
 
-import com.haobg2004110027.Baihoc.tuan3.Dog;
-
 public class CTMinhHoaArrayList {
     public static void main(String[] args) {
 /*        

@@ -1,5 +1,7 @@
 package com.haobg2004110027.tuan2;
 
+import java.util.Scanner;
+
 public class Bai4 {
     public static void main(String[] args) {
         
@@ -29,5 +31,7 @@ public class Bai4 {
             default:
                 break;
         }
+        input.close();
+        System.out.println(a);
     }
 }

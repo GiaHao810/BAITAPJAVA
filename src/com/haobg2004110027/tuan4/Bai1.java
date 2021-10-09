@@ -22,7 +22,9 @@ public class Bai1 {
         for(double element  : doubles){
             sum += element;
         }
+        System.out.println("===============================");
         System.out.println("Danh sách các số thực vừa nhập: " + doubles);
+        System.out.println("===============================");
         System.out.println("Tổng của các số thực vừa nhập: " + sum);
         
         scanner.close();
