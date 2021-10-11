@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 public class Bai2 {
         static  ArrayList<String> studentList = new ArrayList<String>();
+        static  Scanner input = new Scanner(System.in);
 
         public static void main(String[] args) {
             Scanner input = new Scanner(System.in);
@@ -26,34 +27,31 @@ public class Bai2 {
                     case 1:
                         System.out.println("Bạn đã chọn [1]");
                         nhap();
-
-                        do{
-                            System.out.print("Ấn Y để quay lại MENU: ");
-                        } while (input.next().equals("N"));
+                        backtoMenu();
                         
                         break;
                     case 2:
                         System.out.println("Bạn đã chọn [2]");
                         xuat();
-                        loop();
+                        backtoMenu();
 
                         break;
                     case 3:
                         System.out.println("Bạn đã chọn [3]");
                         xuatRand();
-                        loop();
+                        backtoMenu();
 
                         break;
                     case 4:
                         System.out.println("Bạn đã chọn [4]");
                         sapxep();
-                        loop();
+                        backtoMenu();
 
                         break;
                     case 5:
                         System.out.println("Bạn đã chọn [5]");
                         xoa();
-                        loop();
+                        backtoMenu();
 
                         break;
                     default:
@@ -74,19 +72,13 @@ public class Bai2 {
             System.out.println("=====================================");
         }
 
-        public static void loop() {
-            Scanner input = new Scanner(System.in);
-
+        public static void backtoMenu() {
             do{
                 System.out.print("Ấn Y để quay lại MENU: ");
             } while (input.next().equals("N"));
-
-            input.close();
         }
         
         public static void nhap(){
-            Scanner input = new Scanner(System.in);
-
                 while (true) {
                     System.out.print("Nhập họ và tên: ");
                     String name = input.nextLine();
@@ -97,7 +89,6 @@ public class Bai2 {
                     break;
                 }
             }
-            input.close();
         }
 
         public static void xuat(){
@@ -118,20 +109,17 @@ public class Bai2 {
         }
 
         public static void xoa() {
-            Scanner input = new Scanner(System.in);
-
             System.out.print("Nhập tên cần xóa: ");
             String name = input.next();
 
             for(String bString : studentList){
-                if(bString == name){
+                if(bString.equals(name)){
                     studentList.remove(bString);
                     System.out.println("Đã xóa thành công!");
+                    break;
                 } else {
                     System.out.println("Không tìm thấy tên cần xóa!");
                 }
+                }
             }
-
-            input.close();
         }
-}
