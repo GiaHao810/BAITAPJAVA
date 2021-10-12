@@ -18,5 +18,11 @@ public class SanPham {
         System.out.println("Đơn giá: " + donGia);
     }
 
+    public String getTen() {
+        return this.tenSP;
+    }
 
+    public double getDonGia() {
+        return this.donGia;
+    }
 }

@@ -42,9 +42,11 @@ public class Bai3 {
                     break;
                 case 3:
                     System.out.println("Đã chọn [3].");
+                    xoa();
                     break;
                 case 4:
                     System.out.println("Đã chọn [4].");
+                    average();
                     break;
                 default:
                     break;
@@ -83,24 +85,27 @@ public class Bai3 {
         Collections.reverse(dsSP);
     }
 
-    public static SanPham find(ArrayList<SanPham> dsSP) {
-        
+    public static void xoa(){
         System.out.print("Nhập tên sản phẩm cần xóa: ");
         String a = input.next();
 
-        for(SanPham sanPham : dsSP){
-            if(sanPham.tenSP.equals(a)){
-                SanPham result = sanPham;
+        for(SanPham b : dsSP){
+            if(a.equals(b)){
+                dsSP.remove(b);
+                System.out.println("Đã xóa thành công!");
+                break;
+            } else {
+                System.out.println("Không tìm thấy tên sản phẩm cần xóa!");
             }
         }
-        return null;
     }
 
-    public static void erase(SanPham result, ArrayList<SanPham> dsSP) {
-        
-        SanPham sanPham = find(dsSP);
-
-        dsSP.remove(sanPham);
-
+    public static void average() {
+        double giaTB = 0, sum = 0;
+        for (SanPham aSanPham : dsSP) {
+            sum += aSanPham.getDonGia();
+        }
+        giaTB = sum / dsSP.size ();
+        System.out.println("Giá trung bình của sản phẩm là: " + giaTB);
     }
 }
