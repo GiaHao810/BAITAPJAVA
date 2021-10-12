@@ -20,7 +20,7 @@ public class Bai2 {
                 key = input.nextInt();
                 switch (key) {
                     case 0:
-                        System.out.println("Bạn đã chọn [0] - Chương trình đang đóng.");
+                        System.err.println("Bạn đã chọn [0] - Chương trình đang đóng.");
                         input.close();
                         flag = false;
                         break;
@@ -74,7 +74,7 @@ public class Bai2 {
 
         public static void backtoMenu() {
             do{
-                System.out.print("Ấn Y để quay lại MENU: ");
+                System.err.print("Ấn Y để quay lại MENU: ");
             } while (input.next().equals("N"));
         }
         
@@ -84,7 +84,7 @@ public class Bai2 {
                     String name = input.nextLine();
                     studentList.add(name);
 
-                    System.out.print("Nhập thêm (Y/N): ");
+                    System.err.print("Nhập thêm (Y/N): ");
                     if(input.nextLine().equals("N")){
                     break;
                 }
