@@ -13,7 +13,6 @@ public class Queue {
         System.out.println("\n\n");
         xoa(student);
         System.out.println("System shutting down!");
-        System.exit(0);
     }
     
     public static void addToTail(Queue<Student> student) {
@@ -28,9 +27,7 @@ public class Queue {
             System.out.print("Nhập tuổi: ");
             String age = scanner.nextLine();
 
-            scanner.nextLine();
-            Student newStudent = new Student(name, id, age);
-            student.add(newStudent);
+            student.add(new Student(name, id, age));
 
             System.out.print("Nhập thêm (Y/N)?: ");
 

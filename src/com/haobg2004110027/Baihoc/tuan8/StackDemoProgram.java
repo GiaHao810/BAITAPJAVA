@@ -6,7 +6,7 @@ public class StackDemoProgram {
     public static void main(String[] args) {
         Stack<String> stack;
 
-        stack = new Stack();
+        stack = new Stack<String>();
 
         //Thêm phần tử vào Stack
         stack.push("Welcome");

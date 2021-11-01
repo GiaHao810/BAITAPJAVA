@@ -20,6 +20,7 @@ public class RockPaperSiccors {
                 i = false;
             }
         } while (i == true);
+        input.close();
 }
 
     private static void print(){
@@ -80,6 +81,7 @@ public class RockPaperSiccors {
         }
 
         winable(playerMove, computerMove);
+        input.close();
     }
 
     //    Rock > Scissors > Paper > Rock
