@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class Stack {
 
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
         Stack<Student> student = new Stack();
         addToTail(student);
@@ -19,19 +19,19 @@ public class Stack {
 
         while (true) {
             System.out.print("Nhập tên: ");
-            String name = scanner.nextLine();
+            String name = input.next();
 
             System.out.print("Nhập mssv: ");
-            String id = scanner.nextLine();
+            String id = input.next();
 
             System.out.print("Nhập tuổi: ");
-            String age = scanner.nextLine();
+            String age = input.next();
 
             student.add(new Student(name, id, age));
 
-            System.out.print("Nhập thêm (Y/N)?: ");
+            System.out.print("Bạn có muốn nhập thêm (Y/N): ");
 
-            if (scanner.nextLine().equals("N")) {
+            if (input.nextLine().equals("N")) {
                 break;
             }
         }
@@ -39,21 +39,23 @@ public class Stack {
 
     public static void peek(Stack<Student> student){
         Student listStudent = student.peek();
-        System.out.println("Tên học sinh đầu tiên: " + listStudent.name);
-        System.out.println("Mssv học sinh đầu tiên: " + listStudent.id);
-        System.out.println("Tuổi học sinh: " + listStudent.age);
+        System.out.println("Học sinh đang ở đầu hàng");
+        System.out.println("Tên: " + listStudent.name);
+        System.out.println("ID: " + listStudent.id);
+        System.out.println("Tuổi: " + listStudent.age);
     }
 
-    public static void xoa(Stack<Student> student) {
+    public static void remove(Stack<Student> student) {
         while (true) {
             Student removeStudent = student.poll();
-            System.out.println("Tên học sinh đầu hàng bị xóa : " + removeStudent.name);
-            System.out.println("Mssv học sinh đầu hàng bị xóa : " + removeStudent.id);
-            System.out.println("Tuổi học sinh đầu hàng bị xóa : " + removeStudent.age);
+            System.out.println("Học sinh đầu hàng bị xóa");
+            System.out.println("Tên : " + removeStudent.name);
+            System.out.println("ID: " + removeStudent.id);
+            System.out.println("Tuổi: " + removeStudent.age);
 
-            System.out.print("Nhập thêm (Y/N)?: ");
+            System.out.print("Bạn có muốn nhập thêm (Y/N)?: ");
 
-            if (scanner.nextLine().equals("N")) {
+            if (input.nextLine().equals("N")) {
                 break;
             }
         }
