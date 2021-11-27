@@ -1,26 +1,27 @@
 package com.haobg2004110027.Baihoc.tuan7;
 
+import java.util.Scanner;
+
 public class MyLinkedList {
     
     Node head = null;
     Node tail = null;
 
     public MyLinkedList(){}
-    
-
 
     void addtoHead(String data){
         //Tạo 1 Node mới
         Node newNode = new Node(data);
 
-        if(head == null){
+        if(head == null){ //Thêm 1 nút vào danh sách rỗng
             head = newNode;
             tail = newNode;
         } else {
-            head.next = head;
+            newNode.next = head;
             head = newNode;
         }
     }
+
     void addtoTail(String data){
         //Tạo 1 Node mới
         Node newNode = new Node(data);
@@ -49,8 +50,17 @@ public class MyLinkedList {
         }
     }
   
-    void remove(){
-        
+    void remove(String data, String x){
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Nhập data cần xóa: ");
+        x = input.next();
+
+        if(x == data){
+            
+        }
+
+        input.close();
     }
     
 }
