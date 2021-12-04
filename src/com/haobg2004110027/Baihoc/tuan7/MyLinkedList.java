@@ -9,7 +9,7 @@ public class MyLinkedList {
 
     public MyLinkedList(){}
 
-    void addtoHead(String data){
+    void addtoHead(int data){
         //Tạo 1 Node mới
         Node newNode = new Node(data);
 
@@ -22,7 +22,7 @@ public class MyLinkedList {
         }
     }
 
-    void addtoTail(String data){
+    void addtoTail(int data){
         //Tạo 1 Node mới
         Node newNode = new Node(data);
 
@@ -62,5 +62,33 @@ public class MyLinkedList {
 
         input.close();
     }
+
+    void sortDown(){
+        Node currNode = head;
+        Node nextNode = null;
+        int tempNode;
+
+        if(head == null){
+            System.out.println("Kho rỗng!");
+        } else {
+            while(currNode != null){
+
+                nextNode = currNode.next;
+
+                while(nextNode != null){
+                    if(currNode.data < nextNode.data){
+                        tempNode = currNode.data;
+                        
+                        currNode.data = nextNode.data;
+
+                        nextNode.data = tempNode;
+
+                }
+                nextNode = nextNode.next;
+            }
+            currNode = currNode.next;
+        }
+    }
+}
     
 }

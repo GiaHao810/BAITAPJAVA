@@ -3,7 +3,7 @@ package com.haobg2004110027.Baihoc.tuan7;
 public class Node {
     
     //Nội dung
-    String data;
+    int data;
 
     //Liên kết đến nút tiếp theo
     //Tham chiếu
@@ -11,12 +11,12 @@ public class Node {
 
     public Node(){}
 
-    public Node(String data){
+    public Node(int data){
         this.data = data;
         next = null;
     }
 
-    public Node(String data, Node next){
+    public Node(int data, Node next){
         this.data = data;
         this.next = next;
     }

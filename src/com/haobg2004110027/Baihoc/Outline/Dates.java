@@ -8,7 +8,7 @@ public class Dates {
     public static void main(String[] args) throws ParseException{
         //Khai bao bien kieu ngay
         Date ngaySinh;
-        String strNgaySinh = "20/11/2000";
+        String strNgaySinh = "08/10/2002";
         
         ngaySinh = chuyenChuoiSangNgay(strNgaySinh);
         System.out.println(ngaySinh);
@@ -17,6 +17,7 @@ public class Dates {
 
         System.out.println(str);
         
+
     }
 
     /**đổi chuỗi (theo chuẩn ngày Việt Nam) sang ngày java */
@@ -28,7 +29,7 @@ public class Dates {
          * mm: tháng
          * yyyy: năm
          */
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         date = simpleDateFormat.parse(chuoiNgay);
         return date;
     }
@@ -36,7 +37,7 @@ public class Dates {
     //Đổi ngày Java sang kiểu ngày việt dd/mm/yyy
     public static String chuyenNgaySangChuoi(Date date){
         String chuoiNgayViet = null;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
         chuoiNgayViet =  simpleDateFormat.format(date);
         return chuoiNgayViet;
 

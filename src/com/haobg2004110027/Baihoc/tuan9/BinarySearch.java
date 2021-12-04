@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class BinarySearch {
     public static void main(String[] args) {
         int[] arr = {4, 7, 20, 24 , 31, 42, 56};
+
         Scanner input = new Scanner(System.in);
 
         System.out.print("Nhập X cần tìm: ");

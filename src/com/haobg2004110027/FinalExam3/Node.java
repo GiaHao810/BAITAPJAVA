@@ -2,37 +2,31 @@ package com.haobg2004110027.FinalExam3;
 
 public class Node {
     String nameProduct,
-           typeProduct;
-    int idProduct,
-        priceProduct,
-        inventory;
-    int date,
-        month,
-        year;
+           typeProduct,
+           dateProduct,
+           idProduct;
+    int inventory;
+    Double priceProduct;
     Node next;
 
     public Node(){}
 
-    public Node(String nameProduct, String typeProduct, int idProduct, int priceProduct, int inventory, int date, int month, int year){
+    public Node(String nameProduct, String typeProduct, String idProduct, Double priceProduct, int inventory, String dateProduct){
         this.nameProduct = nameProduct;
         this.typeProduct = typeProduct;
         this.idProduct = idProduct;
         this.priceProduct = priceProduct;
         this.inventory = inventory;
-        this.date = date;
-        this.month = month;
-        this.year = year;
+        this.dateProduct = dateProduct;
         next = null;
     }
-    public Node(String nameProduct, String typeProduct, int idProduct, int priceProduct, int inventory, int date, int month, int year, Node next){
+    public Node(String nameProduct, String typeProduct, String idProduct, Double priceProduct, int inventory, String dateProduct, Node next){
         this.nameProduct = nameProduct;
         this.typeProduct = typeProduct;
         this.idProduct = idProduct;
         this.priceProduct = priceProduct;
         this.inventory = inventory;
-        this.date = date;
-        this.month = month;
-        this.year = year;
+        this.dateProduct = dateProduct;
         this.next = next;
     }
 }
