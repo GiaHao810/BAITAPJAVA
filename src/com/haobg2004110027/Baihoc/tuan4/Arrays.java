@@ -5,9 +5,11 @@ public class Arrays {
 
         String[] dsSV = {"Tí", "Tì", "Ti"};
 
-        System.out.println("Mảng: ");
+        System.out.print("Mảng: ");
 
-        System.out.println(dsSV);
+        for(int i = 0; i < dsSV.length; i++){
+            System.out.println(dsSV[i]);
+        }
         
     }
 

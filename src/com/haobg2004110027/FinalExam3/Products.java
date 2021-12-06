@@ -30,23 +30,24 @@ public class Products {
     }
 
     void inThongTin() throws ParseException{
-        Node current = head;
+        Node currNode = head;
 
-        if (current == null) {
+        if (currNode == null) {
             System.out.println("Danh sách rỗng!");
         }
 
-        while (current != null) {
+        while (currNode != null) {
             System.out.println("\nThông tin hàng hóa");
-            System.out.println("Loại: " + current.typeProduct);
-            System.out.println("Giá: " + current.priceProduct + " VNĐ");
-            System.out.println("Mã hàng: " + current.idProduct);
-            System.out.println("Tên hàng hóa: " + current.nameProduct);
-            System.out.println("Số lượng tồn kho: " + current.inventory);
+            System.out.println("Loại: " + currNode.typeProduct);
+            System.out.printf("Giá: %.3f VNĐ\n", currNode.priceProduct);
+            System.out.println("Mã hàng: " + currNode.idProduct);
+            System.out.println("Tên hàng hóa: " + currNode.nameProduct);
+            System.out.println("Số lượng tồn kho: " + currNode.inventory);
 
-            Date parseString = parDate.parse(current.dateProduct);
+            Date parseString = parDate.parse(currNode.dateProduct);
             System.out.println("Ngày nhập kho: " + parseString);
-            current = current.next;
+
+            currNode = currNode.next;
         }
 
     }
@@ -113,7 +114,7 @@ public class Products {
             add(nameProduct, typeProduct, idProduct, priceProduct, inventory, dateProduct);
 
             while(loop){
-                System.out.print("Bạn có muốn nhập thêm không (Y/N): ");
+                System.out.print("Bạn có muốn nhập thêm không (TO/N): ");
                 moreCondition = input.nextLine();
                 
                 if(moreCondition.equalsIgnoreCase("y")){
@@ -252,7 +253,7 @@ public class Products {
             if(TYPE.equalsIgnoreCase(currNode.typeProduct)){
                 System.out.println("\n\tFound! - Print out infomation:");
                 System.out.println("Loại: " + currNode.typeProduct);
-                System.out.println("Giá: " + currNode.priceProduct + " VNĐ");
+                System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
                 System.out.println("Mã hàng: " + currNode.idProduct);
                 System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                 System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -285,7 +286,7 @@ public class Products {
             if(currNode.priceProduct == PRICE){
                 System.out.println("\n\tThông tin trùng khớp");
                 System.out.println("Loại: " + currNode.typeProduct);
-                System.out.println("Giá: " + currNode.priceProduct + " VNĐ");
+                System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
                 System.out.println("Mã hàng: " + currNode.idProduct);
                 System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                 System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -318,7 +319,7 @@ public class Products {
                 if(FROM <= currNode.priceProduct && TO >= currNode.priceProduct){
                     System.out.println("\nFound! - Print out infomation:");
                     System.out.println("Loại: " + currNode.typeProduct);
-                    System.out.println("Giá: " + currNode.priceProduct + " VNĐ");
+                    System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
                     System.out.println("Mã hàng: " + currNode.idProduct);
                     System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                     System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -333,7 +334,7 @@ public class Products {
                 if(FROM >= currNode.priceProduct && TO <= currNode.priceProduct){
                     System.out.println("\nFound! - Print out infomation:");
                     System.out.println("Loại: " + currNode.typeProduct);
-                    System.out.println("Giá: " + currNode.priceProduct + " VNĐ");
+                    System.out.printf("Giá: %.3f", currNode.priceProduct + " VNĐ");
                     System.out.println("Mã hàng: " + currNode.idProduct);
                     System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                     System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -367,21 +368,21 @@ public class Products {
         findPriceFT(FROM, TO);
     }
 
-    void findDate(String X) throws ParseException {
+    void findDate(String date_String) throws ParseException {
         Node currNode = head;
 
         while(currNode != null){
-            if(X.equalsIgnoreCase(currNode.dateProduct)){
+            if(date_String.equalsIgnoreCase(currNode.dateProduct)){
                 break;
             }
 
             currNode = currNode.next;
         }
 
-        if(X.equalsIgnoreCase(currNode.dateProduct)){
+        if(date_String.equalsIgnoreCase(currNode.dateProduct)){
             System.out.println("\nThông tin hàng hóa");
             System.out.println("Loại: " + currNode.typeProduct);
-            System.out.println("Giá: " + currNode.priceProduct + " VNĐ");
+            System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
             System.out.println("Mã hàng: " + currNode.idProduct);
             System.out.println("Tên hàng hóa: " + currNode.nameProduct);
             System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -393,20 +394,20 @@ public class Products {
 
     void importFindDate() throws ParseException {
         System.out.print("Nhập ngày cần tìm [Ngày/Tháng/Năm]: ");
-        String X = input.nextLine();
+        String date_String = input.nextLine();
 
-        findDate(X);
+        findDate(date_String);
     }
 
-    void findDateFT(String X, String Y) throws ParseException {
+    void findDateFT(String FROM, String TO) throws ParseException {
         Node currNode = head;
 
         Date date1,
              date2,
              date3;
         
-        date2 = parDate.parse(X);
-        date3 = parDate.parse(Y);
+        date2 = parDate.parse(FROM);
+        date3 = parDate.parse(TO);
 
         while(currNode != null){
             date1 = parDate.parse(currNode.dateProduct);
@@ -415,7 +416,7 @@ public class Products {
                 if(date1.after(date2) && date1.before(date3)){
                     System.out.println("\nThông tin hàng hóa");
                     System.out.println("Loại: " + currNode.typeProduct);
-                    System.out.println("Giá: " + currNode.priceProduct + " VNĐ");
+                    System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
                     System.out.println("Mã hàng: " + currNode.idProduct);
                     System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                     System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -427,7 +428,7 @@ public class Products {
                 if(date1.before(date2) && date1.after(date3)){
                     System.out.println("\nThông tin hàng hóa");
                     System.out.println("Loại: " + currNode.typeProduct);
-                    System.out.println("Giá: " + currNode.priceProduct + " VNĐ");
+                    System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
                     System.out.println("Mã hàng: " + currNode.idProduct);
                     System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                     System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -436,7 +437,7 @@ public class Products {
             }
 
             if(date2 == date3){
-                findDate(X);
+                findDate(FROM);
             }
 
             currNode = currNode.next;
@@ -501,9 +502,9 @@ public class Products {
 
                         checkNull = true;
                 }
-                nextNode = nextNode.next;
-            }
-            currNode = currNode.next;
+                    nextNode = nextNode.next;
+                }
+                currNode = currNode.next;
         }
     }
 
@@ -701,15 +702,15 @@ public class Products {
 
         while(currNode != null){
 
-            if(currNode.typeProduct.equalsIgnoreCase("Thực Phẩm")){
+            if(currNode.typeProduct.equalsIgnoreCase("Thuc Pham")){
                 FoodProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
-            if(currNode.typeProduct.equalsIgnoreCase("Sành Sứ")){
+            if(currNode.typeProduct.equalsIgnoreCase("Sanh Su")){
                 CrockeryProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
-            if(currNode.typeProduct.equalsIgnoreCase("Điện máy")){
+            if(currNode.typeProduct.equalsIgnoreCase("Dien May")){
                 ElectricProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
@@ -747,15 +748,15 @@ public class Products {
 
         while(currNode != null){
 
-            if(currNode.typeProduct.equalsIgnoreCase("Thực Phẩm")){
+            if(currNode.typeProduct.equalsIgnoreCase("Thuc Pham")){
                 FoodProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
-            if(currNode.typeProduct.equalsIgnoreCase("Sành Sứ")){
+            if(currNode.typeProduct.equalsIgnoreCase("Sanh Su")){
                 CrockeryProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
-            if(currNode.typeProduct.equalsIgnoreCase("Điện máy")){
+            if(currNode.typeProduct.equalsIgnoreCase("Dien May")){
                 ElectricProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
@@ -807,15 +808,15 @@ public class Products {
 
         while(currNode != null){
 
-            if(currNode.typeProduct.equalsIgnoreCase("Thực Phẩm")){
+            if(currNode.typeProduct.equalsIgnoreCase("Thuc Pham")){
                 FoodProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
-            if(currNode.typeProduct.equalsIgnoreCase("Sành Sứ")){
+            if(currNode.typeProduct.equalsIgnoreCase("Sanh Su")){
                 CrockeryProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
-            if(currNode.typeProduct.equalsIgnoreCase("Điện máy")){
+            if(currNode.typeProduct.equalsIgnoreCase("Dien May")){
                 ElectricProducts.add(currNode.nameProduct, currNode.typeProduct, currNode.idProduct, currNode.priceProduct, currNode.inventory, currNode.dateProduct);
             }
 
@@ -906,13 +907,13 @@ public class Products {
         }
 
         while(currNode != null){
-            if(currNode.typeProduct.equalsIgnoreCase("Thực phẩm")){
+            if(currNode.typeProduct.equalsIgnoreCase("Thuc Pham")){
                 food++;
                 key = false;
-            } else if(currNode.typeProduct.equalsIgnoreCase("sành sứ")){
+            } else if(currNode.typeProduct.equalsIgnoreCase("Sanh Su")){
                 crock++;
                 key = false;
-            } else if(currNode.typeProduct.equalsIgnoreCase("điện máy")){
+            } else if(currNode.typeProduct.equalsIgnoreCase("Dien May")){
                 elec++;
                 key = false;
             }

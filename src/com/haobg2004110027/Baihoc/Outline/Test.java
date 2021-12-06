@@ -1,17 +1,34 @@
 package com.haobg2004110027.Baihoc.Outline;
 
+import java.util.Scanner;
+
 public class Test {
      public static void main(String[] args) throws ReflectiveOperationException {
-     //      Double a = 2141231.444;
-     //      Double b = 44444444.1233;
+          int[] a = {9,6,2,4,7};
+          Scanner input = new Scanner(System.in);
+          // searchIndex(a, input);
+          // searchLNNN(a);
+
           
-     //      int c = (int)(a + b);
+     }
 
-     //      Double d = a + b;
+     public static void searchIndex(int []a, Scanner input){
+          System.out.print("Nhap gia tri can tim: ");
+          int index = input.nextInt();
 
-     //      System.out.println(c + " " + d);
-
-      System.out.println("Thực Phẩm - Điện máy - số - ú òa");
-
+          for(int i = 0; i < a.length; i++){
+               if(a[i] == index){
+                    System.out.printf("Da tim thay gia tri %d o phan tu thu %d", a[i], i);
+               }
+          }
+     }
+     public static void searchLNNN(int []a) {
+          int max = a[0];
+          for(int i = 0; i < a.length - 1; i++){
+               if(max > a[i]){
+                    a[i] = max;
+               }
+          }
+          System.out.println("Gia tri lon nhat: " + max);
      }
 }

@@ -46,6 +46,7 @@ public class ProductsTestDrive {
     
         input.close();
     }
+
     private static void TempMenu(Products tempProducts, Scanner input) throws ParseException {
         boolean loopCondition = true;
         do {
@@ -630,15 +631,15 @@ public class ProductsTestDrive {
     private static void TempProducts(Products tempProducts) {
         // nameProduct, typeProduct, idProduct, priceProduct, inventory, date
 
-        tempProducts.add("Táo", "Thực phẩm", "TP236", 2000.0, 2600, "12/5/2021"); tempProducts.add("Dứa", "Thực phẩm", "TP502", 3600.0, 3540, "08/12/2021"); 
-        tempProducts.add("ViVo", "Điện máy", "DM148", 4000000.0, 286, "05/09/2021"); tempProducts.add("BlackBerry", "Điện máy", "DM275", 1600000.0, 4, "09/04/2021");
-        tempProducts.add("Dưa hấu", "Thực phẩm", "TP172", 21600.0, 2610, "30/11/2021"); tempProducts.add("Xoài", "Thực phẩm", "TP936", 16500.0, 2643, "20/11/2021");
-        tempProducts.add("Cam", "Thực phẩm", "TP334", 12300.0, 4862, "10/06/2020"); tempProducts.add("Kiwi", "Thực phẩm", "TP40", 16400.0, 3795, "15/02/2020"); 
-        tempProducts.add("Quả dâu", "Thực phẩm", "TP929", 13400.0, 2648, "27/09/2020"); tempProducts.add("Cherry", "Thực phẩm", "TP731", 10200.0, 4924, "20/01/2021");
-        tempProducts.add("Đào Chuồn Bát Tràng", "Sành sứ", "SS141", 523000.0, 10, "20/04/2019"); tempProducts.add("Men Bát Tràng", "Sành sứ", "SS603", 583000.0, 20, "18/03/2019"); 
-        tempProducts.add("Hoa Sen Bát Tràng", "Sành sứ", "SS579", 596000.0, 20, "04/09/2019"); tempProducts.add("Hoa Dây Bát Tràng", "Sành sứ", "SS57", 542000.0, 82, "19/05/2020");
-        tempProducts.add("Hoa Trắng Bát Tràng", "Sành sứ", "SS295", 621000.0, 50, "28/08/2020"); tempProducts.add("Gốm Xanh Bát Tràng", "Sành sứ", "SS505", 604000.0, 50, "01/01/2021"); 
-        tempProducts.add("Mát Ghi Bát Tràng", "Sành sứ", "SS645", 420000.0, 29, "19/05/2020"); tempProducts.add("iPhone", "Điện máy", "DM796", 32000000.0, 1000, "10/11/2021"); 
-        tempProducts.add("SamSung", "Điện máy", "DM839", 16000000.0, 800, "08/02/2021"); tempProducts.add("Huawei", "Điện máy", "DM741", 8000000.0, 600, "04/07/2021");
+        tempProducts.add("Táo", "Thuc Pham", "TP236", 2.000, 2600, "12/5/2021"); tempProducts.add("Hoa Dây Bát Tràng", "Sanh Su", "SS57", 542.000, 82, "19/05/2020");
+        tempProducts.add("ViVo", "Dien May", "DM148", 4000.000, 286, "05/09/2021"); tempProducts.add("Gốm Xanh Bát Tràng", "Sanh Su", "SS505", 604.000, 50, "01/01/2021"); 
+        tempProducts.add("Dưa hấu", "Thuc Pham", "TP172", 21.600, 2610, "30/11/2021"); tempProducts.add("Huawei", "Dien May", "DM741", 8000.000, 600, "04/07/2021");
+        tempProducts.add("Mát Ghi Bát Tràng", "Sanh Su", "SS645", 420.000, 29, "19/05/2020"); tempProducts.add("iPhone", "Dien May", "DM796", 32000.000, 1000, "10/11/2021"); 
+        tempProducts.add("Cam", "Thuc Pham", "TP334", 12.300, 4862, "10/06/2020"); tempProducts.add("Kiwi", "Thuc Pham", "TP40", 16.400, 3795, "15/02/2020"); 
+        tempProducts.add("Quả dâu", "Thuc Pham", "TP929", 13.400, 2648, "27/09/2020"); tempProducts.add("Cherry", "Thuc Pham", "TP731", 10.200, 4924, "20/01/2021");
+        tempProducts.add("Đào Chuồn Bát Tràng", "Sanh Su", "SS141", 523.000, 10, "20/04/2019"); tempProducts.add("Men Bát Tràng", "Sanh Su", "SS603", 583.000, 20, "18/03/2019"); 
+        tempProducts.add("Hoa Sen Bát Tràng", "Sanh Su", "SS579", 596.000, 20, "04/09/2019"); tempProducts.add("Dứa", "Thuc Pham", "TP502", 3.600, 3540, "08/12/2021"); 
+        tempProducts.add("Hoa Trắng Bát Tràng", "Sanh Su", "SS295", 621.000, 50, "28/08/2020"); tempProducts.add("BlackBerry", "Dien May", "DM275", 1600.000, 4, "09/04/2021");
+        tempProducts.add("Xoài", "Thuc Pham", "TP936", 16.500, 2643, "20/11/2021"); tempProducts.add("SamSung", "Dien May", "DM839", 16000.000, 800, "08/02/2021"); 
     }
 }
