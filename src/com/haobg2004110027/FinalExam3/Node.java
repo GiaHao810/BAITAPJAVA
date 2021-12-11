@@ -5,13 +5,13 @@ public class Node {
            typeProduct,
            dateProduct,
            idProduct;
-    int inventory;
-    Double priceProduct;
+    int inventory,
+        priceProduct;
     Node next;
 
     public Node(){}
 
-    public Node(String nameProduct, String typeProduct, String idProduct, Double priceProduct, int inventory, String dateProduct){
+    public Node(String nameProduct, String typeProduct, String idProduct, int priceProduct, int inventory, String dateProduct){
         this.nameProduct = nameProduct;
         this.typeProduct = typeProduct;
         this.idProduct = idProduct;
@@ -20,7 +20,7 @@ public class Node {
         this.dateProduct = dateProduct;
         next = null;
     }
-    public Node(String nameProduct, String typeProduct, String idProduct, Double priceProduct, int inventory, String dateProduct, Node next){
+    public Node(String nameProduct, String typeProduct, String idProduct, int priceProduct, int inventory, String dateProduct, Node next){
         this.nameProduct = nameProduct;
         this.typeProduct = typeProduct;
         this.idProduct = idProduct;

@@ -27,18 +27,22 @@ public class ProductsTestDrive {
             case 1:
                 TempProducts(tempProducts);
                 TempMenu(tempProducts, input);
+
                 loopCondition = false;
                 break;
             case 2:
                 MainMenu(listProducts , input);
+
                 loopCondition = false;
                 break;
             case 0:
                 System.out.println("Chương trình đang đóng!");
+
                 loopCondition = false;
                 break;
             default:
                 System.out.println("Lựa chọn không tồn tại!");
+                
                 break;
             }
         } while (loopCondition);
@@ -125,7 +129,6 @@ public class ProductsTestDrive {
 
                                 loopCondition_Case4 = false;
 
-                                tempProducts.delay();
                                 break;
                             case 3:
                                 System.out.println("\n [Tìm kiếm theo NGÀY (1 - NGÀY) (2 - KHOẢNG NGÀY)");
@@ -136,7 +139,7 @@ public class ProductsTestDrive {
                                 while(loopCondition_Case4_3){
                                     switch (userOption_Case4_3) {
                                         case 1:    
-                                            tempProducts.importFindDateFT();
+                                            tempProducts.importFindDate();
     
                                             loopCondition_Case4_3 = false;
                                             
@@ -160,7 +163,6 @@ public class ProductsTestDrive {
                                 
                                 loopCondition_Case4 = false;
 
-                                tempProducts.delay();
                                 break;
                             default:
                                 System.out.println("Chức năng không tồn tại!");
@@ -172,7 +174,7 @@ public class ProductsTestDrive {
                     }
                     break;
                 case 5:
-                    System.out.println("\n [Sắp xếp theo (1 -TĂNG DẦN) (2 - GIẢM DẦN) (3 - NGÀY) (4 -  LOẠI ) (5 - LOẠI & NGÀY ) (6 - LOẠI & GIÁ)] \n");
+                    System.out.println("\n [Sắp xếp theo (1 - GIÁ) (2 - NGÀY) (3 -  LOẠI) (4 - LOẠI & NGÀY) (5 - LOẠI & GIÁ)] \n");
                     System.out.print("Chọn loại sắp xếp: ");
                     int userOption_Case5 = input.nextInt();
                     boolean loopCondition_Case5 = true;
@@ -180,24 +182,41 @@ public class ProductsTestDrive {
                     while(loopCondition_Case5){
                         switch(userOption_Case5) {
                             case 1:
-                                System.out.println("\n [Sắp xếp tăng dần] \n");
+                                System.out.println("\n [Sắp xếp theo GIÁ (1 - TĂNG DẦN) (2- GIẢM DẦN)] \n");
+                                System.out.print("Chọn kiểu sắp xếp: ");
+                                int userOption_Case5_1 = input.nextInt();
+                                boolean loopCondition_Case5_1 = true;
 
-                                tempProducts.sortPriceUp();
+                                while(loopCondition_Case5_1){
+                                    switch (userOption_Case5_1) {
+                                        case 1:
+                                            tempProducts.sortPriceUp();
+                                            
+                                            loopCondition_Case5_1 = false;
+
+                                            tempProducts.delay();
+                                            break;
+                                        case 2:
+                                            tempProducts.sortPriceDown();
+                                            
+                                            loopCondition_Case5_1 = false;
+                                            
+                                            tempProducts.delay();
+                                            break;
+                                        default:
+                                            System.out.println("Chức năng không tồn tại!");
+                                            
+                                            loopCondition_Case5_1 = false;
+                                            
+                                            break;
+                                    }
+                                }
 
                                 loopCondition_Case5 = false;
 
-                                tempProducts.delay();
                                 break;
+
                             case 2:
-                                System.out.println("\n [Sắp xếp giảm dần] \n");  
-
-                                tempProducts.sortPriceDown();
-
-                                loopCondition_Case5 = false;
-
-                                tempProducts.delay();
-                                break;
-                            case 3:
                                 System.out.println("\n [Sắp xếp theo NGÀY (1 - TĂNG DẦN) (2 - GIẢM DẦN)] \n");
                                 System.out.print("Chọn kiểu sắp xếp: ");
                                 int userOption_Case5_3 = input.nextInt();
@@ -232,7 +251,7 @@ public class ProductsTestDrive {
                                 loopCondition_Case5 = false;
 
                                 break;
-                            case 4:
+                            case 3:
                                 System.out.println("\n [Sắp xếp theo LOẠI] \n");
 
                                 tempProducts.sortType(tempProducts);
@@ -241,7 +260,7 @@ public class ProductsTestDrive {
 
                                 tempProducts.delay();
                                 break;
-                            case 5:
+                            case 4:
                                 System.out.println("\n [Sắp xếp theo LOẠI & NGÀY (1 - TĂNG DẦN) (2 - GIẢM DẦN)] \n");
                                 System.out.print("Chọn kiểu sắp xếp LOẠI & NGÀY: ");
                                 int userOption_Case5_5 = input.nextInt();
@@ -252,7 +271,7 @@ public class ProductsTestDrive {
 
                                 tempProducts.delay();
                                 break;
-                            case 6:
+                            case 5:
                                 System.out.println("\n [Sắp xếp theo LOẠI & GIÁ (1 - TĂNG DẦN) (2 - GIẢM DẦN) ] \n");
                                 System.out.print("Chọn kiểu sắp xếp LOẠI & GIÁ: ");
                                 int userOption_Case5_6 = input.nextInt();
@@ -470,22 +489,38 @@ public class ProductsTestDrive {
                     while(loopCondition_Case5){
                         switch(userOption_Case5) {
                             case 1:
-                                System.out.println("\n [Sắp xếp tăng dần] \n");
+                                System.out.println("\n [Sắp xếp theo GIÁ (1 - TĂNG DẦN) (2- GIẢM DẦN)] \n");
+                                System.out.print("Chọn kiểu sắp xếp: ");
+                                int userOption_Case5_1 = input.nextInt();
+                                boolean loopCondition_Case5_1 = true;
 
-                                listProducts.sortPriceUp();
+                                while(loopCondition_Case5_1){
+                                    switch (userOption_Case5_1) {
+                                        case 1:
+                                            listProducts.sortPriceUp();
+                                            
+                                            loopCondition_Case5_1 = false;
+
+                                            listProducts.delay();
+                                            break;
+                                        case 2:
+                                            listProducts.sortPriceDown();
+                                            
+                                            loopCondition_Case5_1 = false;
+                                            
+                                            listProducts.delay();
+                                            break;
+                                        default:
+                                            System.out.println("Chức năng không tồn tại!");
+                                            
+                                            loopCondition_Case5_1 = false;
+                                            
+                                            break;
+                                    }
+                                }
 
                                 loopCondition_Case5 = false;
 
-                                listProducts.delay();
-                                break;
-                            case 2:
-                                System.out.println("\n [Sắp xếp giảm dần] \n");
-                                
-                                listProducts.sortPriceDown();
-
-                                loopCondition_Case5 = false;
-
-                                listProducts.delay();
                                 break;
                             case 3:
                                 System.out.println("\n [Sắp xếp theo NGÀY (1 - TĂNG DẦN) (2 - GIẢM DẦN)] \n");
@@ -631,15 +666,15 @@ public class ProductsTestDrive {
     private static void TempProducts(Products tempProducts) {
         // nameProduct, typeProduct, idProduct, priceProduct, inventory, date
 
-        tempProducts.add("Táo", "Thuc Pham", "TP236", 2.000, 2600, "12/5/2021"); tempProducts.add("Hoa Dây Bát Tràng", "Sanh Su", "SS57", 542.000, 82, "19/05/2020");
-        tempProducts.add("ViVo", "Dien May", "DM148", 4000.000, 286, "05/09/2021"); tempProducts.add("Gốm Xanh Bát Tràng", "Sanh Su", "SS505", 604.000, 50, "01/01/2021"); 
-        tempProducts.add("Dưa hấu", "Thuc Pham", "TP172", 21.600, 2610, "30/11/2021"); tempProducts.add("Huawei", "Dien May", "DM741", 8000.000, 600, "04/07/2021");
-        tempProducts.add("Mát Ghi Bát Tràng", "Sanh Su", "SS645", 420.000, 29, "19/05/2020"); tempProducts.add("iPhone", "Dien May", "DM796", 32000.000, 1000, "10/11/2021"); 
-        tempProducts.add("Cam", "Thuc Pham", "TP334", 12.300, 4862, "10/06/2020"); tempProducts.add("Kiwi", "Thuc Pham", "TP40", 16.400, 3795, "15/02/2020"); 
-        tempProducts.add("Quả dâu", "Thuc Pham", "TP929", 13.400, 2648, "27/09/2020"); tempProducts.add("Cherry", "Thuc Pham", "TP731", 10.200, 4924, "20/01/2021");
-        tempProducts.add("Đào Chuồn Bát Tràng", "Sanh Su", "SS141", 523.000, 10, "20/04/2019"); tempProducts.add("Men Bát Tràng", "Sanh Su", "SS603", 583.000, 20, "18/03/2019"); 
-        tempProducts.add("Hoa Sen Bát Tràng", "Sanh Su", "SS579", 596.000, 20, "04/09/2019"); tempProducts.add("Dứa", "Thuc Pham", "TP502", 3.600, 3540, "08/12/2021"); 
-        tempProducts.add("Hoa Trắng Bát Tràng", "Sanh Su", "SS295", 621.000, 50, "28/08/2020"); tempProducts.add("BlackBerry", "Dien May", "DM275", 1600.000, 4, "09/04/2021");
-        tempProducts.add("Xoài", "Thuc Pham", "TP936", 16.500, 2643, "20/11/2021"); tempProducts.add("SamSung", "Dien May", "DM839", 16000.000, 800, "08/02/2021"); 
+        tempProducts.add("Táo", "Thuc Pham", "TP236", 2000, 2600, "12/5/2021"); tempProducts.add("Hoa Dây Bát Tràng", "Sanh Su", "SS57", 542000, 82, "19/05/2020");
+        tempProducts.add("ViVo", "Dien May", "DM148", 4000000, 286, "05/09/2021"); tempProducts.add("Gốm Xanh Bát Tràng", "Sanh Su", "SS505", 604000, 50, "01/01/2021"); 
+        tempProducts.add("Dưa hấu", "Thuc Pham", "TP172", 21600, 2610, "30/11/2021"); tempProducts.add("Huawei", "Dien May", "DM741", 8000000, 600, "04/07/2021");
+        tempProducts.add("Mát Ghi Bát Tràng", "Sanh Su", "SS645", 420000, 29, "19/05/2020"); tempProducts.add("iPhone", "Dien May", "DM796", 32000000, 1000, "10/11/2021"); 
+        tempProducts.add("Cam", "Thuc Pham", "TP334", 12300, 4862, "10/06/2020"); tempProducts.add("Kiwi", "Thuc Pham", "TP40", 16400, 3795, "15/02/2020"); 
+        tempProducts.add("Quả dâu", "Thuc Pham", "TP929", 13400, 2648, "27/09/2020"); tempProducts.add("Cherry", "Thuc Pham", "TP731", 10200, 4924, "20/01/2021");
+        tempProducts.add("Đào Chuồn Bát Tràng", "Sanh Su", "SS141", 523000, 10, "20/04/2019"); tempProducts.add("Men Bát Tràng", "Sanh Su", "SS603", 583000, 20, "18/03/2019"); 
+        tempProducts.add("Hoa Sen Bát Tràng", "Sanh Su", "SS579", 596000, 20, "04/09/2019"); tempProducts.add("Dứa", "Thuc Pham", "TP502", 3600, 3540, "08/12/2021"); 
+        tempProducts.add("Hoa Trắng Bát Tràng", "Sanh Su", "SS295", 621000, 50, "28/08/2020"); tempProducts.add("BlackBerry", "Dien May", "DM275", 1600000, 4, "09/04/2021");
+        tempProducts.add("Xoài", "Thuc Pham", "TP936", 16500, 2643, "20/11/2021"); tempProducts.add("SamSung", "Dien May", "DM839", 16000000, 800, "08/02/2021"); 
     }
 }

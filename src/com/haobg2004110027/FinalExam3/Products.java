@@ -15,12 +15,12 @@ public class Products {
     Node tail = null;
 
     String nameProduct, typeProduct, dateProduct, idProduct;
-    int inventory;
-    Double priceProduct;
+    int inventory,
+        priceProduct;
 
     void Product() {}
 
-    void Product(String nameProduct, String typeProduct, String idProduct, Double priceProduct, int inventory, String dateProduct) {
+    void Product(String nameProduct, String typeProduct, String idProduct, int priceProduct, int inventory, String dateProduct) {
         this.nameProduct = nameProduct;
         this.idProduct = idProduct;
         this.inventory = inventory;
@@ -39,7 +39,7 @@ public class Products {
         while (currNode != null) {
             System.out.println("\nThông tin hàng hóa");
             System.out.println("Loại: " + currNode.typeProduct);
-            System.out.printf("Giá: %.3f VNĐ\n", currNode.priceProduct);
+            System.out.println("Giá: " +  currNode.priceProduct + " VNĐ");
             System.out.println("Mã hàng: " + currNode.idProduct);
             System.out.println("Tên hàng hóa: " + currNode.nameProduct);
             System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -55,22 +55,24 @@ public class Products {
     void delay() {
         System.out.println("\nNhấn Enter để tiếp tục");
         String delay = input.nextLine();
+
     }
 
     void showMenu() {
+        System.out.println("========================================================================================");
         System.out.println("[1] Thêm Hàng Hóa.");
         System.out.println("[2] Xóa Hàng Hóa.");
         System.out.println("[3] Sửa Hàng Hóa.");
         System.out.println("[4] Tìm kiếm theo (1 - LOẠI) (2 - GIÁ) (3 - NGÀY).");
-        System.out.println("[5] Sắp xếp theo (1 -TĂNG DẦN) (2 - GIẢM DẦN) (3 - NGÀY) (4 -  LOẠI ) (5 - LOẠI & NGÀY ) (6 - LOẠI & GIÁ).");
+        System.out.println("[5] Sắp xếp theo (1 - GIÁ) (2 - NGÀY) (3 -  LOẠI ) (4 - LOẠI & NGÀY ) (5 - LOẠI & GIÁ).");
         System.out.println("[6] Thống kê (1 - Tổng Số Lượng Hàng Hóa) (2 - Tổng Giá Trị Nhập Kho) (3 - Số Lượng Từng Loại Hàng).");
         System.out.println("[7] In danh sách sản phẩm.");
         System.out.println("[0] Thoát chương trình.");
-
+        System.out.println("========================================================================================");
     }
 
     // Thuật toán nhập vào đuôi
-    void add(String nameProduct, String typeProduct, String idProduct, Double priceProduct, int inventory, String dateProduct){
+    void add(String nameProduct, String typeProduct, String idProduct, int priceProduct, int inventory, String dateProduct){
         Node newNode = new Node(nameProduct, typeProduct, idProduct, priceProduct, inventory, dateProduct);
 
         if (head == null) {
@@ -101,11 +103,12 @@ public class Products {
             nameProduct = input.nextLine();
 
             System.out.print("Giá nhập: ");
-            priceProduct = input.nextDouble();
+            priceProduct = input.nextInt();
 
             System.out.print("Số lượng tồn kho: ");
             inventory = input.nextInt();
 
+            String catchEnter = input.nextLine();
             System.out.print("Ngày nhập [Ngày/Tháng/Năm]:");
             dateProduct = input.nextLine();
             
@@ -114,7 +117,7 @@ public class Products {
             add(nameProduct, typeProduct, idProduct, priceProduct, inventory, dateProduct);
 
             while(loop){
-                System.out.print("Bạn có muốn nhập thêm không (TO/N): ");
+                System.out.print("Bạn có muốn nhập thêm không (Y/N): ");
                 moreCondition = input.nextLine();
                 
                 if(moreCondition.equalsIgnoreCase("y")){
@@ -222,7 +225,7 @@ public class Products {
             currNode.nameProduct = input.nextLine();
 
             System.out.print("Giá nhập: ");
-            currNode.priceProduct = input.nextDouble();
+            currNode.priceProduct = input.nextInt();
 
             System.out.print("Số lượng tồn kho: ");
             currNode.inventory = input.nextInt();
@@ -247,25 +250,24 @@ public class Products {
     //Thuật toán tìm kiếm
     void findType(String TYPE) throws ParseException{
         Node currNode = head;
-        boolean loopCondition = true;
+        boolean checkNull = true;
 
         while(currNode != null){
             if(TYPE.equalsIgnoreCase(currNode.typeProduct)){
                 System.out.println("\n\tFound! - Print out infomation:");
                 System.out.println("Loại: " + currNode.typeProduct);
-                System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
+                System.out.println("Giá: " +  currNode.priceProduct + " VNĐ");
                 System.out.println("Mã hàng: " + currNode.idProduct);
                 System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                 System.out.println("Số lượng tồn kho: " + currNode.inventory);
 
                 Date parString = parDate.parse(currNode.dateProduct);
                 System.out.println("Ngày nhập kho: " + parString);
-                loopCondition = false;
             }
             currNode = currNode.next;
         }
 
-        if(loopCondition){
+        if(checkNull){
             System.out.println("\nKhông tìm thấy!");
         }
     }
@@ -280,25 +282,25 @@ public class Products {
 
     void findPrice(int PRICE) throws ParseException{
         Node currNode = head;
-        boolean loopCondition = true;
+        boolean checkNull = true;
 
         while(currNode != null){
             if(currNode.priceProduct == PRICE){
                 System.out.println("\n\tThông tin trùng khớp");
                 System.out.println("Loại: " + currNode.typeProduct);
-                System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
+                System.out.println("Giá: " +  currNode.priceProduct + " VNĐ");
                 System.out.println("Mã hàng: " + currNode.idProduct);
                 System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                 System.out.println("Số lượng tồn kho: " + currNode.inventory);
 
                 Date parString = parDate.parse(currNode.dateProduct);
                 System.out.println("Ngày nhập kho: " + parString);
-                loopCondition = false;
+                checkNull = false;
             }
             currNode = currNode.next;
         }
 
-        if(loopCondition){
+        if(checkNull){
             System.out.println("\nKhông tìm thấy!");
         }
     }
@@ -312,21 +314,29 @@ public class Products {
     
     void findPriceFT(int FROM, int TO) throws ParseException{
         Node currNode = head;
-        boolean loopCondition = true;
+        boolean checkNull = true;
 
+        
         while(currNode != null){
+
+            if(FROM == TO){
+                findPrice(FROM);
+                checkNull = false;
+                break;
+            }
+
             if(FROM < TO){
                 if(FROM <= currNode.priceProduct && TO >= currNode.priceProduct){
                     System.out.println("\nFound! - Print out infomation:");
                     System.out.println("Loại: " + currNode.typeProduct);
-                    System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
+                    System.out.println("Giá: " +  currNode.priceProduct + " VNĐ");
                     System.out.println("Mã hàng: " + currNode.idProduct);
                     System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                     System.out.println("Số lượng tồn kho: " + currNode.inventory);
     
                     Date parString = parDate.parse(currNode.dateProduct);
                     System.out.println("Ngày nhập kho: " + parString);
-                    loopCondition = false;
+                    checkNull = false;
                 }
             }
 
@@ -334,26 +344,21 @@ public class Products {
                 if(FROM >= currNode.priceProduct && TO <= currNode.priceProduct){
                     System.out.println("\nFound! - Print out infomation:");
                     System.out.println("Loại: " + currNode.typeProduct);
-                    System.out.printf("Giá: %.3f", currNode.priceProduct + " VNĐ");
+                    System.out.println("Giá: " +  currNode.priceProduct + " VNĐ");
                     System.out.println("Mã hàng: " + currNode.idProduct);
                     System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                     System.out.println("Số lượng tồn kho: " + currNode.inventory);
     
                     Date parString = parDate.parse(currNode.dateProduct);
                     System.out.println("Ngày nhập kho: " + parString);
-                    loopCondition = false;
+                    checkNull = false;
                 }
-            if(FROM == TO){
-                findPrice(FROM);
             }
-            
             currNode = currNode.next;
-        }
-
-        if(loopCondition){
+    }
+        if(checkNull){
             System.out.println("\nKhông tìm thấy!");
         }
-    }
 }
 
     void importfindPriceFT() throws ParseException{
@@ -382,7 +387,7 @@ public class Products {
         if(date_String.equalsIgnoreCase(currNode.dateProduct)){
             System.out.println("\nThông tin hàng hóa");
             System.out.println("Loại: " + currNode.typeProduct);
-            System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
+            System.out.println("Giá: " +  currNode.priceProduct + " VNĐ");
             System.out.println("Mã hàng: " + currNode.idProduct);
             System.out.println("Tên hàng hóa: " + currNode.nameProduct);
             System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -416,7 +421,7 @@ public class Products {
                 if(date1.after(date2) && date1.before(date3)){
                     System.out.println("\nThông tin hàng hóa");
                     System.out.println("Loại: " + currNode.typeProduct);
-                    System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
+                    System.out.println("Giá: " +  currNode.priceProduct + " VNĐ");
                     System.out.println("Mã hàng: " + currNode.idProduct);
                     System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                     System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -428,7 +433,7 @@ public class Products {
                 if(date1.before(date2) && date1.after(date3)){
                     System.out.println("\nThông tin hàng hóa");
                     System.out.println("Loại: " + currNode.typeProduct);
-                    System.out.printf("Giá: %.3f VNĐ", currNode.priceProduct);
+                    System.out.println("Giá: " +  currNode.priceProduct + " VNĐ");
                     System.out.println("Mã hàng: " + currNode.idProduct);
                     System.out.println("Tên hàng hóa: " + currNode.nameProduct);
                     System.out.println("Số lượng tồn kho: " + currNode.inventory);
@@ -446,10 +451,10 @@ public class Products {
 
     void importFindDateFT() throws ParseException {
         System.out.println("Nhập ngày cần tìm [NGÀY/THÁNG/NĂM]");
-        System.out.println("Từ ngày: ");
+        System.out.print("Từ ngày: ");
         String FROM = input.nextLine();
 
-        System.out.println("Đến ngày:");
+        System.out.print("Đến ngày:");
         String TO = input.nextLine();
 
         findDateFT(FROM, TO);
@@ -464,8 +469,8 @@ public class Products {
                tempType = null,
                tempID = null,
                tempDate = null;
-        Double tempPrice;
-        int tempInventory;
+        int tempInventory,
+            tempPrice;
 
         boolean checkNull = false;
 
@@ -521,8 +526,8 @@ public class Products {
                tempType = null,
                tempID = null,
                tempDate = null;
-        Double tempPrice;
-        int tempInventory;
+        int tempInventory,
+            tempPrice;
 
         boolean checkNull = false;
 
@@ -577,8 +582,8 @@ public class Products {
                tempType = null,
                tempID = null,
                tempDate = null;
-        Double tempPrice;
-        int tempInventory;
+        int tempInventory,
+            tempPrice;
 
         boolean checkNull = false;
 
@@ -596,7 +601,7 @@ public class Products {
                 date1 = parDate.parse(currNode.dateProduct);
                 date2 = parDate.parse(nextNode.dateProduct);
 
-                if(date1.before(date2)){
+                if(date1.after(date2)){
                 tempName = currNode.nameProduct;
                 tempType = currNode.typeProduct;
                 tempID = currNode.idProduct;
@@ -639,8 +644,8 @@ public class Products {
                tempType = null,
                tempID = null,
                tempDate = null;
-        Double tempPrice;
-        int tempInventory;
+        int tempInventory,
+            tempPrice;
 
         boolean checkNull = false;
 
@@ -658,7 +663,7 @@ public class Products {
                 date1 = parDate.parse(currNode.dateProduct);
                 date2 = parDate.parse(nextNode.dateProduct);
 
-                if(date2.before(date1)){
+                if(date1.before(date2)){
                 tempName = currNode.nameProduct;
                 tempType = currNode.typeProduct;
                 tempID = currNode.idProduct;
@@ -726,16 +731,16 @@ public class Products {
         while(currNode_Food != null){
             products.add(currNode_Food.nameProduct, currNode_Food.typeProduct, currNode_Food.idProduct, currNode_Food.priceProduct, currNode_Food.inventory, currNode_Food.dateProduct);
             currNode_Food = currNode_Food.next;
+        }
 
-            while(currNode_Crockery != null){
-                products.add(currNode_Crockery.nameProduct, currNode_Crockery.typeProduct, currNode_Crockery.idProduct, currNode_Crockery.priceProduct, currNode_Crockery.inventory, currNode_Crockery.dateProduct);
-                currNode_Crockery = currNode_Crockery.next;
+        while(currNode_Crockery != null){
+            products.add(currNode_Crockery.nameProduct, currNode_Crockery.typeProduct, currNode_Crockery.idProduct, currNode_Crockery.priceProduct, currNode_Crockery.inventory, currNode_Crockery.dateProduct);
+            currNode_Crockery = currNode_Crockery.next;
+        }
 
-                while(currNode_Electric != null){
-                    products.add(currNode_Electric.nameProduct, currNode_Electric.typeProduct, currNode_Electric.idProduct, currNode_Electric.priceProduct, currNode_Electric.inventory, currNode_Electric.dateProduct);
-                    currNode_Electric = currNode_Electric.next;
-                }
-            }
+        while(currNode_Electric != null){
+            products.add(currNode_Electric.nameProduct, currNode_Electric.typeProduct, currNode_Electric.idProduct, currNode_Electric.priceProduct, currNode_Electric.inventory, currNode_Electric.dateProduct);
+            currNode_Electric = currNode_Electric.next;
         }
     }
 
@@ -786,16 +791,16 @@ public class Products {
         while(currNode_Food != null){
             products.add(currNode_Food.nameProduct, currNode_Food.typeProduct, currNode_Food.idProduct, currNode_Food.priceProduct, currNode_Food.inventory, currNode_Food.dateProduct);
             currNode_Food = currNode_Food.next;
+        }
 
-            while(currNode_Crockery != null){
-                products.add(currNode_Crockery.nameProduct, currNode_Crockery.typeProduct, currNode_Crockery.idProduct, currNode_Crockery.priceProduct, currNode_Crockery.inventory, currNode_Crockery.dateProduct);
-                currNode_Crockery = currNode_Crockery.next;
+        while(currNode_Crockery != null){
+            products.add(currNode_Crockery.nameProduct, currNode_Crockery.typeProduct, currNode_Crockery.idProduct, currNode_Crockery.priceProduct, currNode_Crockery.inventory, currNode_Crockery.dateProduct);
+            currNode_Crockery = currNode_Crockery.next;
+        }
 
-                while(currNode_Electric != null){
-                    products.add(currNode_Electric.nameProduct, currNode_Electric.typeProduct, currNode_Electric.idProduct, currNode_Electric.priceProduct, currNode_Electric.inventory, currNode_Electric.dateProduct);
-                    currNode_Electric = currNode_Electric.next;
-                }
-            }
+        while(currNode_Electric != null){
+            products.add(currNode_Electric.nameProduct, currNode_Electric.typeProduct, currNode_Electric.idProduct, currNode_Electric.priceProduct, currNode_Electric.inventory, currNode_Electric.dateProduct);
+            currNode_Electric = currNode_Electric.next;
         }
     }
 
@@ -846,16 +851,16 @@ public class Products {
         while(currNode_Food != null){
             products.add(currNode_Food.nameProduct, currNode_Food.typeProduct, currNode_Food.idProduct, currNode_Food.priceProduct, currNode_Food.inventory, currNode_Food.dateProduct);
             currNode_Food = currNode_Food.next;
+        }
 
-            while(currNode_Crockery != null){
-                products.add(currNode_Crockery.nameProduct, currNode_Crockery.typeProduct, currNode_Crockery.idProduct, currNode_Crockery.priceProduct, currNode_Crockery.inventory, currNode_Crockery.dateProduct);
-                currNode_Crockery = currNode_Crockery.next;
+        while(currNode_Crockery != null){
+            products.add(currNode_Crockery.nameProduct, currNode_Crockery.typeProduct, currNode_Crockery.idProduct, currNode_Crockery.priceProduct, currNode_Crockery.inventory, currNode_Crockery.dateProduct);
+            currNode_Crockery = currNode_Crockery.next;
+        }
 
-                while(currNode_Electric != null){
-                    products.add(currNode_Electric.nameProduct, currNode_Electric.typeProduct, currNode_Electric.idProduct, currNode_Electric.priceProduct, currNode_Electric.inventory, currNode_Electric.dateProduct);
-                    currNode_Electric = currNode_Electric.next;
-                }
-            }
+        while(currNode_Electric != null){
+            products.add(currNode_Electric.nameProduct, currNode_Electric.typeProduct, currNode_Electric.idProduct, currNode_Electric.priceProduct, currNode_Electric.inventory, currNode_Electric.dateProduct);
+            currNode_Electric = currNode_Electric.next;
         }
     }
 
@@ -877,10 +882,10 @@ public class Products {
 
         System.out.println("Tổng số lượng hàng hóa: " + count + " Sản Phẩm\n");
     }
-/****** */
+
     void statPrice(){
         Node currNode = head;
-        int result = 0;
+        long result = 0;
 
         if(currNode == null){
             System.out.println("Kho rỗng!");
